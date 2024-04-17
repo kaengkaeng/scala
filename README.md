@@ -1,2 +1,2 @@
 # scala
-I exercise scala every day.
+daily commit
