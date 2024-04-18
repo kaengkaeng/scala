@@ -23,3 +23,16 @@ def positiveSum(xs: Seq[Int]): Int =
     if (x > 0 )(erg += x)
 
   erg
+
+
+//ueberpreufe ob ziffer gross alphabet ist danach gross alphabet ist geliefert 
+//fall alphabet klein ist, convert gross Alphabet. 
+def makeUpperCase(xs: String): String = 
+  
+  var str = ""
+  for (x <- xs) do 
+    if (x.isUpper) str += x
+    else 
+      str += x.toUpper
+  
+  str
