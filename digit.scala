@@ -32,3 +32,4 @@ def countPositivesSumNegatives(integers: Array[Int]): (Int, Int) = {
     }
     (psum, nega)
   }
+  }
