@@ -3,6 +3,8 @@
 // A function that calculates the amount of water Nathan will drink during the given time.
 def litres(time: Double): Int = {
   // Multiply the time by 0.5, round down the result, and convert it to an integer.
+  //소수부분 버리기 scala.math.floor 
+  //소수 반올림 scala.math.round
   scala.math.floor(time * 0.5).toInt
 }
 
@@ -15,9 +17,8 @@ def validatePin(pin: String): Boolean =
 
 
 
-//Convert number to reversed array of digits
-
-//Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+/*Convert number to reversed array of digits. 
+  Given a random non-negative number, you have to return the digits of this number within an array in reverse order*/
 
 def digitize(n: Long): Seq[Int] =
 
