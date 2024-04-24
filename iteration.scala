@@ -1,3 +1,28 @@
+//24042024
+// 이진수 => 십진수
+def binSeqToInt(xs: Seq[Int]): Int =
+  var num = 0
+
+  //역순으로 List를 loop 할때 표현식
+  for (x <- xs.length - 1 to 0 by -1) {
+    if (xs(x) != 0) {
+      //"xs.length - x - 1"은 해당 자릿수의 위치를 나타내는데, 이는 오른쪽에서부터 왼쪽으로 갈수록 증가
+      num = math.pow(2, xs.length - x - 1).toInt + num
+  }
+}
+  num
+
+// meine loesung
+def reverseWords(text: String): String = {
+  val words = text.split(" ")
+  val reversedWords = words.map(_.reverse)
+  val newOne = reversedWords.mkString(" ")
+  newOne
+}
+
+// andere loesung
+def reverseWords2(text: String): String = text.split(" ").map(_.reverse).mkString(" ")
+
 
 
 //22042024 
