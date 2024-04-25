@@ -1,3 +1,18 @@
+//25042024
+
+def xo(str: String): Boolean = 
+  var o = 0 
+  var x = 0 
+
+  for (char <- str) { 
+    if (char == 'o' || char == 'O') {
+      o += 1 
+    } else if (char == 'x' || char == 'X') { 
+      x += 1 
+    }
+  }
+  o == x // 'o'와 'x'의 개수가 같으면 참을 반환하고, 그렇지 않으면 거짓을 반환합니다.
+
 
 /* 이름 받아서 이니셜로 반환하기
   - String => Array
