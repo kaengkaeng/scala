@@ -1,3 +1,10 @@
+// Seq 데이터 다루는 문제. 앞뒤 원소의 차이를 구해서 다 합산하는 문제 
+def sumOfDifferences(arr: Seq[Int]): Int = 
+  if (arr.length == 0) 0
+  else if (arr.length == 1) 0
+  else arr.sortWith(_ > _).sliding(2).map { case Seq(a, b) => a - b }.sum
+
+
 def persistence(n: Int): Int = {
   // 주어진 숫자가 한 자릿수인 경우 곱셈 횟수는 0
   if (n < 10) 0
