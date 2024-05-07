@@ -1,3 +1,9 @@
+def summation(n: Int): Int = 
+    n match 
+      case 0 => 0 
+      case _ => n + summation(n - 1)
+
+
 def distinct(xs: Seq[Int]): Seq[Int] = 
  xs match { 
    case Nil => List() // 만약 입력이 빈 리스트인 경우, 빈 리스트를 반환합니다.
