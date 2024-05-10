@@ -9,6 +9,12 @@ def descendingOrder(num: Int): Int = {
     result.toString.sortWith(_ > _).toInt
   }
 
+/*
+def descendingOrder(num: Int): Int = {
+    num.toString.sortWith(_>_).toInt
+    */ 
+
+
 
 
 def number(busStops: List[(Int, Int)]): Int =
