@@ -1,5 +1,8 @@
 //higher ordner function
 
+// 문장에서 제일 짧은 단어 찾기 
+def findShort(str: String): Int = str.split(" ").map(_.length).min 
+
 //ture counter 
 def countSheep(sheep: Array[Boolean]): Int = 
     sheep.filter(_ == true).count(_ == true)
