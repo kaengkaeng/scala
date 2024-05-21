@@ -14,7 +14,14 @@ def descendingOrder(num: Int): Int = {
     num.toString.sortWith(_>_).toInt
     */ 
 
-
+// 리스트 뒤집기 
+def reverseList(xs: List[Int]): List[Int] = 
+  def step(xs: List[Int], acc: List[Int]): List[Int] =
+    xs match {
+      case Nil => acc // anker
+      case x :: xs => step(xs, x :: acc) // 이 부분 순서 중요 
+    }
+  step(xs, Nil)
 
 
 def number(busStops: List[(Int, Int)]): Int =
