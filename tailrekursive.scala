@@ -1,4 +1,14 @@
 
+// 입력받은 숫자의 각 자릿수를 더하기 
+def sumDigits(n: Int): Int = 
+  def step(n: Int, acc: Int): Int = // 내부 보조 함수 step 선언. n과 acc라는 두 개의 Int 타입 인수를 받음.
+    n match // n의 값을 기준으로 패턴 매칭을 시작.
+      case 0 => 0 + acc // n이 0인 경우, acc를 반환. (0 + acc는 acc와 동일)
+      case _ => step(n / 10, acc + math.abs(n % 10)) // n이 0이 아닌 경우:
+        // n을 10으로 나누어 자리수를 줄이고, 현재 n의 마지막 자릿수의 절대값을 acc에 더하여 step 함수를 재귀 호출.
+  step(math.abs(n), 0) // step 함수를 절대값으로 변환한 n과 초기 acc 값 0으로 호출.
+
+
 // 주어진 숫자 n을 확장된 형태로 반환하는 함수 : (input "12" -> output "10+2") 
 
 def expandedForm(n: Long): String =      
