@@ -23,3 +23,8 @@ def twofer(name: String = "you"): String =
     case _ => s"One for $name, one for me."
   }   
 
+// Bedingungen des schltjahrs
+//(1) (n % 4 == 0) && (n % 100 != 0)
+//(2) (n % 400 == 0)
+def schaltjahr(n: Int): Boolean =
+  (n % 4 == 0) && (n % 100 != 0) || (n % 400 == 0)
