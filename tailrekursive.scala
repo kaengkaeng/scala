@@ -88,3 +88,16 @@ def quersum(n:Int): Int =
       case 0 => acc //anker
       case _ => help(acc+n%10, n/10) //rekursionsschritte
   help(0,n)
+
+// Uni aus uebungszettel
+// zahlen sind umgedrehte zahlen liefert.
+// Int -> String (toString) ->Int (toInt)
+def reverseZahl(n: Int): Int =
+  def step(acc: String, n: Int): String =
+    n match
+      case 0 if acc.isEmpty => "0" // n이 처음부터 0인 경우 처리 // (1)Anker
+      case 0 => acc // (2)Anker
+      case _ => step(acc + (n % 10).toString, n / 10) //Rekursionsschritte
+
+  step("", n).toInt
+
