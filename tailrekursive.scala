@@ -61,3 +61,30 @@ def number(busStops: List[(Int, Int)]): Int =
             if (a < 0 || b < 0) throw new Exception()
             else help(tail, acc1 + a, acc2 + b)
   help(busStops, 0,0)
+
+
+// addiere von 1 bis n 
+// 1)Rekursion
+def summation(n: Int): Int =
+  n match
+    case 0 => 0
+    case _ => n + summation(n - 1)
+
+//2)tail_Rekursion 
+def tailSum(n:Int):Int = 
+  def step(acc:Int, n:Int):Int =
+    n match
+      case 0 => acc
+      case _ => step(acc +n, n-1)
+  step(0,n) // initial Aufruf
+
+
+// n 의 자릿수의 합을 구하는 함수 aus uebungszettel
+// "%" 를 이용해서 digit (각자릿 수) 구하기 (역순으로 구해짐)
+// "/" 를 이용해서 next로 넘어가기
+def quersum(n:Int): Int =
+  def help(acc:Int, n:Int):Int =
+    n match
+      case 0 => acc //anker
+      case _ => help(acc+n%10, n/10) //rekursionsschritte
+  help(0,n)
