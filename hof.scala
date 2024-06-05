@@ -20,6 +20,10 @@ def sumTwoSmallest(numbers: List[Int]): Int =
 
 
 
+//dna 문자열 받아서 'T' 를 'U'로 바꾸기 
+def dnaToRna(dna: String): String = 
+  dna.map(x => if (x == 'T') 'U' else x)
+
 // 주어진 문자열을 받아서 각 단어 뒤에 해당하는 길이를 추가하여 새로운 문자열의 시퀀스를 생성하는 함수
 def addLength(s: String): Seq[String] = {
   s.split(" ").map(word => s"$word ${word.length}") 
