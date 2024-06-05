@@ -37,6 +37,10 @@ def takeNumbers(f: Int => Int,n : Int, list : List[Int], i : Int):List[Int]=
 //2) Funktion berechnet die Quersumme einer Zahl
 def quersumme( i : Int): Int =
   def help(acc : Int, i: Int): Int =
+    i match
+      case 0 => acc
+      case _ => help(acc + i%10,i/10)
+  help(0,i)
 
 
 
