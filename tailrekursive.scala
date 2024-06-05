@@ -101,3 +101,14 @@ def reverseZahl(n: Int): Int =
 
   step("", n).toInt
 
+
+// 두수 합(Int)을 구해서 이진수(string)로 출력하기  
+def addBinary(a: Int, b: Int): String = {
+  def step(acc: String, sum: Int): String = {
+    sum match {
+      case 0 => acc
+      case _ => step(((sum % 2).toString) + acc, sum / 2)
+    }
+  }
+  step("", a + b)
+}
