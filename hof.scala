@@ -20,6 +20,17 @@ def sumTwoSmallest(numbers: List[Int]): Int =
 
 
 
+// 주어진 문자열을 받아서 각 단어 뒤에 해당하는 길이를 추가하여 새로운 문자열의 시퀀스를 생성하는 함수
+def addLength(s: String): Seq[String] = {
+  s.split(" ").map(word => s"$word ${word.length}") 
+  // 빈칸을 기준으로 단어 분리. split 메서드는 문자열을 주어진 구분자로 나누어 배열로 반환 각 단어 뒤에 
+  // 단어 길이를 추가하여 새로운 문자열을 생성합니다.
+}
+
+
+
+
+
 // Uebungszettel: 
 //Implementiere mit Hilfe der Funktionen höherer Ordnung eine Funktion takeNumbers, 
 //welche die ersten n Elemente einer Liste nimmt, deren Quersum- me jeweils einen gegebenen Wert überschreiten.
