@@ -32,6 +32,30 @@ def countDigit(n: Int): Int = {
 }
 
 
+// uebungszettel : 입력받은 숫자의 자릿수들의 합을 출력하는 함수 
+// mit While
+def quersumme(n: Int): Int = {
+  var summe = 0
+  var rest = n
+  while (rest > 0) {
+    val digit = rest % 10
+    if (digit < 10) // digit이 0에서 9 사이에 있는지 확인
+      summe += digit
+    rest = rest / 10
+  }
+  summe // while 루프 밖에서 반환
+}
+
+//mit Tailrekursion 
+def quersummeP(n:Int):Int =
+  def step(acc:Int, n:Int):Int =
+    n match
+      case 0 => acc
+      case _ if (n%10) < 10 => step(acc+(n%10), n/10)
+      case _ => step(acc, n/10)
+  step(0,n)
+
+
 
 
 
