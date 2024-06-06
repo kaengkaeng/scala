@@ -10,7 +10,6 @@ def sumDigits(n: Int): Int =
 
 
 // 주어진 숫자 n을 확장된 형태로 반환하는 함수 : (input "12" -> output "10+2") 
-
 def expandedForm(n: Long): String =      
   def step(n: Long, acc: Long): String = { // 내부 헬퍼 함수 step 정의. n과 현재 자리수를 추적하는 acc를 매개변수로 가짐
     (n, acc) match                          //  (n, acc)에 대한 패턴 매칭 시작
@@ -63,6 +62,8 @@ def number(busStops: List[(Int, Int)]): Int =
   help(busStops, 0,0)
 
 
+//////////////////////////////////////////////////////////
+
 // addiere von 1 bis n 
 // 1)Rekursion
 def summation(n: Int): Int =
@@ -100,6 +101,20 @@ def reverseZahl(n: Int): Int =
       case _ => step(acc + (n % 10).toString, n / 10) //Rekursionsschritte
 
   step("", n).toInt
+
+//Uebungszettel
+// 리스트 안에 원소에 f 함수 식을 적용했을때 최대값이 나오는 원소 출력
+def argmax(xsl: List[Int], f: Int => Int): Int = {
+  def help(list: List[Int], f: Int => Int, max: Int): Int =
+    list match {
+      case Nil => max
+      case x :: xs if f(x) > f(max) => help(xs, f, x)
+      case _ :: xs => help(xs, f, max)
+    }
+  help(xsl, f, Int.MinValue) // 초기 max 값을 Int의 최솟값으로 설정합니다.
+}
+
+/////////////////////////////////////////////////////////////////////////
 
 
 // 두수 합(Int)을 구해서 이진수(string)로 출력하기  
