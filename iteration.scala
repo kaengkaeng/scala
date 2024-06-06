@@ -1,3 +1,40 @@
+
+// 리스트 뒤집기 mit pattern matching
+def reverseList[A](list: List[A]): List[A] ={
+  list match
+    case Nil => Nil
+    case x :: xs => reverseList(xs) :::List(x)
+}
+
+// 리스트 뒤집기 mit for 
+def reverseFor[A](list: List[A]): List[A] = {
+  var buffer = List[A]()
+  for (elem <- list) {
+    buffer = elem :: buffer
+  }
+  buffer
+}
+
+
+// uebungszettel: 입력받은 정수의 자릿수를 계산하는 문제 
+def countDigit(n: Int): Int = {
+  var count = 0
+  var remaining = n  // 입력값을 임시 변수에 저장
+
+  while (remaining > 0) {
+    val digit = remaining % 10  // 현재 자릿수를 계산
+    if (digit >= 0 && digit < 10) // digit이 0에서 9 사이에 있는지 확인
+      count += 1
+    remaining = remaining / 10  // 다음 자릿수로 이동
+  }
+
+  count
+}
+
+
+
+
+
 //24042024
 // 이진수 => 십진수
 def binSeqToInt(xs: Seq[Int]): Int =
