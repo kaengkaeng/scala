@@ -62,6 +62,29 @@ def number(busStops: List[(Int, Int)]): Int =
   help(busStops, 0,0)
 
 
+
+
+//유전자 알파벳 바꾸기
+def makeComplement(dna: String): String = {
+     def step(acc: String, dna: String): String = 
+        dna match {
+          case "" => acc
+          case _ if dna.head == 'A' => step(acc + "T", dna.tail)
+          case _ if dna.head == 'T' => step(acc + "A", dna.tail)
+          case _ if dna.head == 'C' => step(acc + "G", dna.tail)
+          case _ if dna.head == 'G' => step(acc + "C", dna.tail)
+          case _ => acc 
+    }
+     step("", dna)
+}
+
+
+
+
+
+
+
+
 //////////////////////////////////////////////////////////
 
 // addiere von 1 bis n 
