@@ -77,6 +77,17 @@ def makeComplement(dna: String): String = {
     }
      step("", dna)
 }
+///////////////////////////////////////////////////////////
+//evenOdd prüft, ob die Dezimaldarstellung einer Eingabezahl genauso viele gerade Ziffern
+// wie ungerade Ziffern besitzt.
+// Implementiere die Funktion auch endrekursiv. Begründe, warum sie endrekursiv ist.
+def evenodd(n:Int): Boolean =
+  def step (even:Int, odd:Int,n:Int): Boolean =
+    n match
+      case 0 => even == odd
+      case _ if (n%10)%2 == 0 => step(even+1, odd, n/10)
+      case _ => step(even, odd+1, n/10) //der letzte Aufruf ist rekursive Aufrut
+  step(0, 0, n)
 
 //////////////////////////////////////////////////////////
 
