@@ -78,11 +78,33 @@ def makeComplement(dna: String): String = {
      step("", dna)
 }
 
+//////////////////////////////////////////////////////////
 
+// Probeklausur 
+// "42"가 들어 있는지 확인하는 함수 
+//1) tailrekursion :scala version
+def universe(num: Int): Boolean = {
+  def step(acc: Boolean, num: Int): Boolean =
+    num match {
+      case 0 => acc
+      case _ if (num % 100 == 42) => step(true, num / 10)
+      case _ => step(acc, num / 10)
+    }
+  step(false, num)
+}
 
-
-
-
+//2)Imperative version
+def forUni(n: Int): Boolean = {
+  var num = math.abs(n) // 변경 가능하도록 var로 선언
+  var erg = false // 변경 가능하도록 var로 선언
+  while (num >= 42) { 
+    if (num % 100 == 42) {
+      return true // 조건이 참이면 true 반환하고 함수 종료
+    }
+    num = num / 10 // num을 업데이트, also next 
+  }
+  erg // 최종 결과 반환
+}
 
 
 //////////////////////////////////////////////////////////
