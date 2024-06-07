@@ -15,6 +15,24 @@ def reverseFor[A](list: List[A]): List[A] = {
   buffer
 }
 
+/////////////////////////////////////////////////////
+
+// Klausur 
+// 두개 리스트 받아서 다른 원소만 출력, 즉 원소가 같을 경우 weg!
+// for 문으로 구현
+
+def xors(list1: List[Int], list2: List[Int]): List[Int] = {
+  var erg: List[Int] = List()
+  for (i <- 0 until list1.length) {
+    if (!list2.contains(list1(i))) erg = list1(i) :: erg
+  }
+  for (j <- 0 until list2.length) {
+    if (!list1.contains(list2(j))) erg = list2(j) :: erg
+  }
+  erg 
+
+
+/////////////////////////////////////////////////////
 
 // uebungszettel: 입력받은 정수의 자릿수를 계산하는 문제 
 def countDigit(n: Int): Int = {
