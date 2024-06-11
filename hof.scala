@@ -31,9 +31,34 @@ def addLength(s: String): Seq[String] = {
   // 단어 길이를 추가하여 새로운 문자열을 생성합니다.
 }
 
+////////////////////////////////////////////////////////////////////
+// hauptklausur 
+
+def isPrime(n: Int): Boolean = {
+  if (n <= 1) false
+  else if (n == 2) true
+  else !(2 until n).exists(i => n % i == 0)
+}
+
+1)Tail_Rekursion
+def isPrimzahl(xs: List[Int], k: Int): List[Int] = {
+  (xs, k) match {
+    case (Nil, _) => Nil
+    case (_, k) if k <= 0 => Nil
+    case (x :: tail, k) if isPrime(x) => x :: isPrimzahl(tail, k - 1)
+    case (_ :: tail, k) => isPrimzahl(tail, k)
+  }
+  }
+
+2) 1)에 filter 적용
+def isPrimzahl(xs: List[Int], k: Int): List[Int] = {
+  xs.filter(isPrime).take(k)
+}
 
 
 
+
+///////////////////////////////////////////////////////////////////
 
 // Uebungszettel: 
 //Implementiere mit Hilfe der Funktionen höherer Ordnung eine Funktion takeNumbers, 
@@ -49,6 +74,14 @@ def takeNumbers(f: Int => Int,n : Int, list : List[Int], i : Int):List[Int]=
     case x::xs if f(x) > i => x :: takeNumbers(f,n-1,xs,i) // Wenn f(x) größer dem Wert i wird x der Ausgabeliste hinzugefügt
     case x::xs => takeNumbers(f,n,xs,i)//// Wenn f(x) kleiner gleich dem Wert i wird x der Ausgabeliste nicht hinzugefügt
 
+
+//filter 적용해서 1)을 압축해 놓음 
+def filter_takeNumbers(f:Int => Int, n:Int, list:List[Int], i:Int):List[Int] =
+  list.filter( x => f(x) > i).take(n)
+
+// 임의의 함수 
+def f(x: Int): Int = x*x
+
 //2) Funktion berechnet die Quersumme einer Zahl
 def quersumme( i : Int): Int =
   def help(acc : Int, i: Int): Int =
@@ -56,7 +89,6 @@ def quersumme( i : Int): Int =
       case 0 => acc
       case _ => help(acc + i%10,i/10)
   help(0,i)
-
 
 
 //Nachklausur 
